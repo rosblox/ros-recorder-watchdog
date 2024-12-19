@@ -1,0 +1,15 @@
+services:
+  ros-recorder-watchdog-buzzer:
+    image: ghcr.io/rosblox/ros-recorder-watchdog-buzzer:humble
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    network_mode: "host"
+    privileged: true
+    ipc: host
+    pid: host
+    environment:
+      - UID=${HOST_UID}
+      - ROS_DOMAIN_ID
+    command: su - ros --whitelist-environment=ROS_DOMAIN_ID /run.sh
