@@ -3,9 +3,10 @@ ARG ROS_DISTRO=humble
 FROM ros:${ROS_DISTRO}-ros-core
 
 RUN apt update && apt install -y --no-install-recommends \
-    python3-pip \
     python3-colcon-common-extensions \
     build-essential \
+    ros-${ROS_DISTRO}-rosbag2-interfaces \
+    python3-gpiozero \
     && rm -rf /var/lib/apt/lists/*
 
 COPY ros_entrypoint.sh .
