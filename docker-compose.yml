@@ -1,6 +1,6 @@
 services:
-  ros-recorder-watchdog-buzzer:
-    image: ghcr.io/rosblox/ros-recorder-watchdog-buzzer:humble
+  ros-recorder-watchdog:
+    image: ghcr.io/rosblox/ros-recorder-watchdog:humble
     build:
       context: .
       dockerfile: Dockerfile
