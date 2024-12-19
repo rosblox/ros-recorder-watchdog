@@ -6,10 +6,10 @@ from rclpy.node import Node
 
 from rosbag2_interfaces.msg import WriteSplitEvent
 
-class RosRecorderWatchdogBuzzer(Node):
+class RosRecorderWatchdog(Node):
 
     def __init__(self):
-        super().__init__('ros_recorder_watchdog_buzzer')
+        super().__init__('ros_recorder_watchdog')
         self.buzzer = Buzzer(18)
 
         self.subscription = self.create_subscription(WriteSplitEvent,'/events/write_split',self.listener_callback,rclpy.qos.qos_profile_services_default) 
@@ -32,14 +32,14 @@ class RosRecorderWatchdogBuzzer(Node):
 def main(args=None):
     rclpy.init(args=args)
 
-    ros_recorder_watchdog_buzzer = RosRecorderWatchdogBuzzer()
+    ros_recorder_watchdog = RosRecorderWatchdog()
 
-    rclpy.spin(ros_recorder_watchdog_buzzer)
+    rclpy.spin(ros_recorder_watchdog)
 
     # Destroy the node explicitly
     # (optional - otherwise it will be done automatically
     # when the garbage collector destroys the node object)
-    ros_recorder_watchdog_buzzer.destroy_node()
+    ros_recorder_watchdog.destroy_node()
     rclpy.shutdown()
 
 

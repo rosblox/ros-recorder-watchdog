@@ -8,5 +8,5 @@ export HOST_UID=$(id -u)
 
 docker compose -f $SCRIPT_DIR/docker-compose.yml run \
 --remove-orphans \
---volume $(pwd)/ros_recorder_watchdog_buzzer:/colcon_ws/src/ros_recorder_watchdog_buzzer \
+--volume $(pwd)/ros_recorder_watchdog:/colcon_ws/src/ros_recorder_watchdog \
 ${REPOSITORY_NAME} bash

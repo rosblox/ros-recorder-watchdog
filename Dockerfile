@@ -12,12 +12,12 @@ RUN apt update && apt install -y --no-install-recommends \
 COPY ros_entrypoint.sh .
 
 WORKDIR /colcon_ws
-COPY ros_recorder_watchdog_buzzer src/ros_recorder_watchdog_buzzer 
+COPY ros_recorder_watchdog src/ros_recorder_watchdog 
 
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
     colcon build --symlink-install --event-handlers console_direct+
 
-ENV LAUNCH_COMMAND='ros2 run ros_recorder_watchdog_buzzer ros_recorder_watchdog_buzzer_node'
+ENV LAUNCH_COMMAND='ros2 run ros_recorder_watchdog ros_recorder_watchdog_node'
 
 # Create build and run aliases
 RUN echo 'alias build="colcon build --symlink-install  --event-handlers console_direct+ "' >> /etc/bash.bashrc && \

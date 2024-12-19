@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'ros_recorder_watchdog_buzzer'
+package_name = 'ros_recorder_watchdog'
 
 setup(
     name=package_name,
@@ -19,7 +19,7 @@ setup(
     license='BSD3',
     entry_points={
         'console_scripts': [
-                'ros_recorder_watchdog_buzzer_node = ros_recorder_watchdog_buzzer.node:main',
+                'ros_recorder_watchdog_node = ros_recorder_watchdog.node:main',
         ],
     },
 )
