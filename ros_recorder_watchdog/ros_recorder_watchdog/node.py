@@ -26,7 +26,7 @@ class RosRecorderWatchdog(Node):
 
     def beep_buzzer(self):
         lgpio.gpio_write(self.h, BUZZER_PIN, 1)
-        time.sleep(0.1)
+        time.sleep(0.3)
         lgpio.gpio_write(self.h, BUZZER_PIN, 0)
 
     def destroy_node(self):
