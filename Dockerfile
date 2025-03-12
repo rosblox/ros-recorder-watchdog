@@ -6,9 +6,9 @@ RUN apt update && apt install -y --no-install-recommends \
     python3-colcon-common-extensions \
     build-essential \
     ros-${ROS_DISTRO}-rosbag2-interfaces \
-    python3-gpiozero \
+    python3-lgpio \    
     && rm -rf /var/lib/apt/lists/*
-
+   
 COPY ros_entrypoint.sh .
 
 WORKDIR /colcon_ws

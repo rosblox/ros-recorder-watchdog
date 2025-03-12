@@ -6,7 +6,8 @@ services:
       dockerfile: Dockerfile
     restart: always
     network_mode: "host"
-    privileged: true
+    devices:
+      - /dev/gpiochip4
     ipc: host
     pid: host
     environment:
